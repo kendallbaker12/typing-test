@@ -19,8 +19,8 @@ var app = new Vue({
             this.start = Date.now();
         },
         getRandomSentence: function () {
-            var index = Math.floor(Math.random() * (this.SENTENCES.length));
-            this.currentSentence = this.SENTENCES[index];
+            var index = Math.floor(Math.random() * 3);
+            this.currentSentence = SENTENCES[index];
             return this.currentSentence;
         },
         calculateTotalTime: function () {
@@ -44,15 +44,16 @@ var app = new Vue({
         // use it like a variable (v-if="finishedTyping")
         finishedTyping: function () {
             // you probably wanna use your variable here in place of these awful ones
-            if (this.SENTENCE_TO_BE_TYPED == this.SENTENCE_USER_IS_TYPING) {
+            if (this.currentSentence == this.answer) {
                 this.calculateTotalTime();
-                return true;
+                this.finished = true;
             } else {
-                return false;
+                this.finished = false;
             }
         }
     },
     created: function () {
+        this.getRandomSentence();
     }
 });
 
