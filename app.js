@@ -30,6 +30,8 @@ var app = new Vue({
 
         },
         resetTest: function () {
+            this.answer= "";
+            this.time = "";
         },
         resetWithNewSentence: function () {
             this.getRandomSentence();
@@ -37,6 +39,7 @@ var app = new Vue({
                 this.getRandomSentence();
             };
             this.answer = "";
+            this.time = "";
         }
     },
     computed: {

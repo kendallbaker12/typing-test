@@ -9,7 +9,7 @@
     <div id="app">
         <h1>Typing Test</h1>
         {{currentSentence}}<br>
-        <input type="text" v-model="answer" v-bind:disabled="finishedTyping" v-on:keydown="startRace()">
+        <input type="text" v-model="answer" v-bind:disabled="finishedTyping" v-on:keydown="startRace()" style="width: 10000px">
         <br>
         <div v-if="finished == true">
             Total time: {{ time }}s
