@@ -7,17 +7,33 @@ const SENTENCES = [
 var app = new Vue({
     el: "#app",
     data: {
+        start: Date.now(),
+        end: Date.now(),
+        currentSentence: "",
+        answer: "",
+        time: "",
+        finished: false,
+
     },
     methods: {
         startRace: function () {
         },
         getRandomSentence: function () {
+            var index = Math.floor(Math.random() * (this.SENTENCES.length));
+            this.currentSentence = this.SENTENCES[index];
+            return this.currentSentence;
         },
         calculateTotalTime: function () {
+
         },
         resetTest: function () {
         },
         resetWithNewSentence: function () {
+            this.getRandomSentence();
+            while (this.currentSentence == this.answer) {
+                this.getRandomSentence();
+            };
+            this.answer = "";
         }
     },
     computed: {
