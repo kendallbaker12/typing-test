@@ -8,9 +8,9 @@
 <body>
     <div id="app">
         <h1>Typing Test</h1>
-        <input type="text", v-modle="answer", v-on:keydown.enter="finishedTyping()" v-on:keydown="startRace()">
+        <input type="text" , v-model="answer" , v-on:keydown.enter="finishedTyping()" v-on:keydown="startRace()">
         <br>
-        <div v-if="finished"> 
+        <div v-if="finished">
             Total time: {{ time }}s
             <br>
             <button v-on:click="resetTest">Reset Test with same sentence</button>

@@ -8,7 +8,6 @@ var app = new Vue({
     el: "#app",
     data: {
         start: Date.now(),
-        end: Date.now(),
         currentSentence: "",
         answer: "",
         time: "",
@@ -17,6 +16,7 @@ var app = new Vue({
     },
     methods: {
         startRace: function () {
+            this.start = Date.now();
         },
         getRandomSentence: function () {
             var index = Math.floor(Math.random() * (this.SENTENCES.length));
@@ -24,6 +24,9 @@ var app = new Vue({
             return this.currentSentence;
         },
         calculateTotalTime: function () {
+            setTimeout(() => {
+                this.time = Date.now() - this.start;
+            });
 
         },
         resetTest: function () {
